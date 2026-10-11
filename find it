@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find It - Local Search</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f6fb;
+            color: #172033;
+        }
+
+        header {
+            background: #3157d5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        input, select, button {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        input {
+            flex: 1;
+        }
+
+        button {
+            background: #3157d5;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .shops {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px #0001;
+        }
+
+        .card h3 {
+            color: #3157d5;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .reserve {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #172033;
+            color: white;
+        }
+
+        @media (max-width: 500px) {
+            .search-box {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Find It</h1>
+    <p>Find nearby shops. Compare prices. Reserve products.</p>
+</header>
+
+<div class="container">
+
+    <h2>Search for Products</h2>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="search"
+            placeholder="Enter product name..."
+        >
+
+        <select id="category">
+            <option value="All">All Categories</option>
+            <option value="Groceries">Groceries</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Stationery">Stationery</option>
+        </select>
+
+        <button onclick="displayProducts()">Search</button>
+    </div>
+
+    <h2>Available Local Shops</h2>
+    <div class="shops" id="shopList"></div>
+
+</div>
+
+<footer>
+    Find It | Local Search and Reservation System
+</footer>
+
+<script>
+    const products = [
+        {
+            shop: "Green Basket Store",
+            product: "Vegetables",
+            category: "Groceries",
+            price: 60,
+            location: "Clock Tower Market"
+        },
+        {
+            shop: "Tech Corner",
+            product: "Earphones",
+            category: "Electronics",
+            price: 299,
+            location: "Rajpur Road"
+        },
+        {
+            shop: "Campus Stationers",
+            product: "Notebook",
+            category: "Stationery",
+            price: 85,
+            location: "Near College"
+        },
+        {
+            shop: "Daily Needs
